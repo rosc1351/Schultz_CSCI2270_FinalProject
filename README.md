@@ -19,33 +19,59 @@ Includes linked list (LLString)
 
 Handels all user input:
 
-login()
+    login()
 
-logout()
+    logout()
 
-displayfriends()
+    displayfriends()
 
-countfriends()
+    countfriends()
 
-addfriend()
+    addfriend()
 
-removefriend()
+    removefriend()
 
-suggestfriends()
+    suggestfriends()
+
+## Suggestfriends() Algorithm
+
+###Current Implementaiton
+
+Suggestfriends() works by finding the most common friends of friends.  Because the suggested user is only 1 node away from the user, the likelyhood of the user actually knowing the suggested user is high, however the algorithm is reliant on already having a network of friends.  New users will not find this algorithm helpful.
+
+### Alternatives
+
+If the weight of the edge connecting 2 nodes is inversely proportional to the strength of the friendship (based on number of interactions, family relationships, etc), Dijkstra's algorithm to improve the suggestfriends() algorithm.  This method can quantify the likelyhood of ANY 2 users knowing each other based on the distance between them.
+
+## File IO Format
+
+[user1],[user2],[user3]...
+
+[user1],[friend1],[friend2]...
+
+[user2],[friend1]...
+
+...
 
 
+## Future Implementation:
 
-## Further Implementation:
-When suggesting friends, names are printed using a "pseudo-hardcode" method.  This is becuase the data is being stored in a singally linked list.  Converting this data to an array or doublly linked list would make sorting both easier and compulationally faster.
+### Data Structures/Efficiency
 
-Friend Requests.  Currently, friends are added in one direction when added by the user.  Add a feature that queues a request for the new friend to add the user back.
+In production of this project, the primary focus was functionality.  Some algoritms are not very efficient and can use revision and better data structures for the specific task.
 
-General Algorithm Improvement.  In production of this project, the primary focus was functionality.  Some algoritms are not very efficient and can use revision.
+### Friend Requests
 
-Save  data.  Any new friends made durring the session is thrown out after exiting the program.  Add functionality to save the data so we can return to it at a later time.
+Currently, friends are added in one direction when added by the user (the graph is directional).
+Add a feature that queues a request for the new friend to add the user back.
 
+### Save
+
+Any new friends made durring the session is thrown out after exiting the program.  Add functionality to save the data so we can return to it at a later time.
+
+### File Format
 The file format is fine if being read by a computer, but can be tough for human readers
 
-By setting the weight of a friendship based on number of interactions, familial relationship, along with other factors, suggesting friends to the user could become more accurate.
+### Security
 
 Security.  Users do not have passwords and the database of users is unsecure!
