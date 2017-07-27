@@ -1,11 +1,23 @@
 # Schultz_CSCI2270_FinalProject
 # Reccomend Friends
 
+## Project Summary
+
+The Friend reccomendation system stores data about friends and anylizes relationships to suggest users that the current user might know.
+
+## Dependencies and System Requirements
+
+Uses only standard libraries or functions defined in project files.
+
+System Requirements:
+
+    Compile and Run C++ files
+
 ## Structures
 
 ### Linked List
 
-Handles File io using split()
+Handles File IO using split()
 
 Stores list of friends in suggestfriends()
 
@@ -35,7 +47,7 @@ Handels all user input:
 
 ## Suggestfriends() Algorithm
 
-###Current Implementaiton
+### Current Implementaiton
 
 Suggestfriends() works by finding the most common friends of friends.  Because the suggested user is only 1 node away from the user, the likelyhood of the user actually knowing the suggested user is high, however the algorithm is reliant on already having a network of friends.  New users will not find this algorithm helpful.
 
@@ -75,3 +87,37 @@ The file format is fine if being read by a computer, but can be tough for human 
 ### Security
 
 Security.  Users do not have passwords and the database of users is unsecure!
+
+
+# Example Input
+
+    File.txt //Filename
+
+    1 //Login
+
+    Donald Trump //Username
+
+    3 //Display Friends
+
+    2 //Suggest Friends
+
+    0 //Exit list
+
+    1 //Add Friend
+
+    Barack Obama
+
+    2 //Suggest Friends
+
+    4 //Count Friends
+
+    5 //Remove Friend
+
+    Russia
+
+    4 //Count Friends
+
+    6 //Log out
+
+    2 //Quit
+

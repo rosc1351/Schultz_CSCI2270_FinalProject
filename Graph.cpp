@@ -1,5 +1,36 @@
 #include "Graph.hpp"
 
+///Constructor: Read users and friends from file
+template<class T>
+Graph<T>::Graph(string filename){
+    ifstream file(filename);
+    if(!file.is_open()){
+        cout << "Error opening file" << endl;
+    }else{
+        string line;
+        getline(file, line);
+        LLstring data;
+        data.split(line);
+        node *tmp = data.head;
+        while(tmp != nullptr){
+            addVertex(tmp->key);
+            tmp = tmp->next;
+        }
+        while(file.good()){
+            getline(file, line);
+            if(line != ""){
+                data.split(line);
+                string user = data.head->key;
+                tmp = data.head->next;
+                while(tmp != nullptr){
+                    addEdge(user, tmp->key, 1);
+                    tmp = tmp->next;
+                }
+            }
+        }
+    }
+}
+
 template<class T>
 Graph<T>::~Graph()
 {
@@ -7,9 +38,7 @@ Graph<T>::~Graph()
 
 template<class T>
 void Graph<T>::addEdge(T v1, T v2, int weight){
-
-    for(int i = 0; i < vertices
-.size(); i++){
+    for(int i = 0; i < vertices.size(); i++){
         if(vertices[i].name == v1){
             bool found = false;
             for(int j = 0; j < vertices.size(); j++){
@@ -19,6 +48,21 @@ void Graph<T>::addEdge(T v1, T v2, int weight){
                     av.v = &vertices[j];
                     av.weight = weight;
                     vertices[i].adj.push_back(av);
+                }
+            }
+            break;
+        }
+    }
+}
+
+template<class T>
+void Graph<T>::removeEdge(T v1, T v2){
+    for(int i = 0; i < vertices.size(); i++){
+        if(vertices[i].name == v1){
+            for(int c = 0; c < vertices[i].adj.size();c++){
+                if(vertices[i].adj[c].v->name == v2){
+                    vertices[i].adj.erase(vertices[i].adj.begin() + c);
+                    break;
                 }
             }
         }

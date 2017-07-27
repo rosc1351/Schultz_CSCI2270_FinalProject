@@ -5,7 +5,6 @@ Rec::Rec(string filename){
 }
 
 void Rec::quit(){
-    delete user;
     delete friends;
     cout << "Goodbye!" << endl;
 }
@@ -15,7 +14,7 @@ void Rec::login(){
     string login;
     do{
         cout << "User: " << endl;
-        //memo: cin.ignore new line
+        cin.ignore(1000,'\n');
         getline(cin, login);
         if(login == "stop"){
             break;
@@ -67,6 +66,23 @@ void Rec::addfriend(){
     }
 }
 
+void Rec::removefriend(){
+    if(user != nullptr){
+        string name;
+        cout << "Enter Name:" << endl;
+        cin.ignore(1000,'\n');
+        getline(cin,name);
+        if(!is_friend(name)){
+            cout << name << " is not in your friends list" << endl;
+        }else{
+            friends->removeEdge(user->name, name);
+        }
+    }else{
+        cout << "Login to add friends" << endl;
+    }
+
+}
+
 void Rec::suggestfriends(){
     //suggest friends
     //for vects in adj vects
@@ -86,7 +102,7 @@ void Rec::suggestfriends(){
             
         }
     }
-    list.sortbycount();
+    list.printbycount();
 }
 
 void Rec::listusers(){

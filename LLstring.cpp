@@ -131,7 +131,7 @@ node *LLstring::split(string line){
     return split(line, ',');
 }
 
-void LLstring::sortbycount(){
+void LLstring::printbycount(){
     int max = 0;
     node *tmp = head;
     while(tmp != nullptr){

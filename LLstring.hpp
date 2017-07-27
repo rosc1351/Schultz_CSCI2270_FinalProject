@@ -26,6 +26,6 @@ public:
     node *split(string line);
     node *head;
     node *tail;
-    void sortbycount();
+    void printbycount();
     
 };

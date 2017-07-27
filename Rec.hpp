@@ -16,6 +16,7 @@ public:
     void displayfriends();
     int countfriends();
     void addfriend();
+    void removefriend();
     void suggestfriends();
     void listusers();
     bool is_friend(string name);

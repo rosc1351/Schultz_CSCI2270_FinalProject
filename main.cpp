@@ -4,13 +4,14 @@ using namespace std;
 
 void menu2(Rec Rec){
     int res = 0;
-    while(res != 5){
+    while(res != 6){
         cout << "===Menu=== *" << Rec.user->name << endl;
         cout << "1. Add friend" << endl;
         cout << "2. Suggest friends" << endl;
         cout << "3. Display friends" << endl;
         cout << "4. Count Friends" << endl;
-        cout << "5. Log out" << endl;
+        cout << "5. Remove Friend" << endl;
+        cout << "6. Log out" << endl;
         
         cin >> res;
         
@@ -23,6 +24,8 @@ void menu2(Rec Rec){
         }else if(res == 4){
             cout << "You have " << Rec.countfriends() << " friends" << endl;
         }else if(res == 5){
+            Rec.removefriend();
+        }else if(res == 6){
             Rec.logout();
         }
     }
