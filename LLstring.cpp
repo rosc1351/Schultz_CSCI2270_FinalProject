@@ -90,6 +90,7 @@ void LLstring::prepend(string k){
     }
 }
 
+///Erases list, sets head/tail to nullptr
 void LLstring::empty(){
     if(size() != 0){
         node *tmp = head;
@@ -127,10 +128,12 @@ node *LLstring::split(string line, char delimiter){
     return head;
 }
 
+///Same as split with defailt delimiter = ','
 node *LLstring::split(string line){
     return split(line, ',');
 }
 
+///Prints in order of decreasing count
 void LLstring::printbycount(){
     int max = 0;
     node *tmp = head;
@@ -152,7 +155,7 @@ void LLstring::printbycount(){
                 }
             }
             if(tmp->count == i){
-                cout << tmp->key << " ~~Count: " << tmp->count << endl;
+                cout << tmp->key << " --- Mutual Friends: " << tmp->count << endl;
                 count++;
             }
             tmp = tmp->next;

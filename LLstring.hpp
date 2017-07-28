@@ -15,17 +15,19 @@ public:
     LLstring();
     ~LLstring();
     
+    ///Data
+    node *head;
+    node *tail;
+    
     ///Functions
     int size();
     void append(string k);
-    void countappend(string k);
+    void countappend(string k); ///Use append() if not counting for the sake of efficency
     void prepend(string k);
-    void empty();
+    void empty(); ///Erases list
     node *find(string s);
     node *split(string line, char delimiter);
     node *split(string line);
-    node *head;
-    node *tail;
     void printbycount();
     
 };

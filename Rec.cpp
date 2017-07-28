@@ -14,7 +14,6 @@ void Rec::login(){
     string login;
     do{
         cout << "User: " << endl;
-        cin.ignore(1000,'\n');
         getline(cin, login);
         if(login == "stop"){
             break;

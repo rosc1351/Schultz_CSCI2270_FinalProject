@@ -3,7 +3,7 @@
 
 ## Project Summary
 
-The Friend reccomendation system stores data about friends and anylizes relationships to suggest users that the current user might know.
+The Friend reccomendation system stores data about friends and anylizes relationships to suggest users that the current user might know.  This system could easily be adapted to suit other fields like music or shopping suggestions.
 
 ## Dependencies and System Requirements
 
@@ -49,7 +49,7 @@ Handels all user input:
 
 ### Current Implementaiton
 
-Suggestfriends() works by finding the most common friends of friends.  Because the suggested user is only 1 node away from the user, the likelyhood of the user actually knowing the suggested user is high, however the algorithm is reliant on already having a network of friends.  New users will not find this algorithm helpful.
+Suggestfriends() works by comparing the most mutual friends.  Because the suggested user is only 1 node away from the user, the likelyhood of the user actually knowing the suggested user is high, however the algorithm is reliant on already having a network of friends.  New users will not find this algorithm helpful.
 
 ### Alternatives
 
@@ -67,6 +67,10 @@ If the weight of the edge connecting 2 nodes is inversely proportional to the st
 
 
 ## Future Implementation:
+
+### ERROR: Getline - cin buffer
+
+When using getline to get input, the first get line is skipped because of a trailing '\n'.  cin.ignore() and cin.clear() cause runtime errors.
 
 ### Data Structures/Efficiency
 

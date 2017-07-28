@@ -4,28 +4,30 @@
 template<class T>
 Graph<T>::Graph(string filename){
     ifstream file(filename);
-    if(!file.is_open()){
-        cout << "Error opening file" << endl;
-    }else{
-        string line;
+    while(!file.is_open()){
+        cout << "Error Reading File" << endl;
+        cout << "Filename:" << endl;
+        getline(cin, filename);
+        file.open(filename);
+    }
+    string line;
+    getline(file, line);
+    LLstring data;
+    data.split(line);
+    node *tmp = data.head;
+    while(tmp != nullptr){
+        addVertex(tmp->key);
+        tmp = tmp->next;
+    }
+    while(file.good()){
         getline(file, line);
-        LLstring data;
-        data.split(line);
-        node *tmp = data.head;
-        while(tmp != nullptr){
-            addVertex(tmp->key);
-            tmp = tmp->next;
-        }
-        while(file.good()){
-            getline(file, line);
-            if(line != ""){
-                data.split(line);
-                string user = data.head->key;
-                tmp = data.head->next;
-                while(tmp != nullptr){
-                    addEdge(user, tmp->key, 1);
-                    tmp = tmp->next;
-                }
+        if(line != ""){
+            data.split(line);
+            string user = data.head->key;
+            tmp = data.head->next;
+            while(tmp != nullptr){
+                addEdge(user, tmp->key, 1);
+                tmp = tmp->next;
             }
         }
     }
